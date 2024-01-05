@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import HomeBanner from './HomeBanner'
 import Checks from './Checks'
 import { Link } from 'react-router-dom'
+import {Helmet} from 'react-helmet'
 
 // images import 
 
@@ -20,12 +21,17 @@ import Lumini from '../../assets/images/Lumbini-Museum.png'
 
 import Slider from "react-slick";
 import OfferSection from '../../components/OfferSection'
+import NoteContext from '../../context/notes/NoteContext';
 
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
 
-const Home = () => {
+const Home = ({Seodata}) => {
+  const { ReviewsAPI,Reviews,Footer} = useContext(NoteContext);
+  useEffect(() => {
+    ReviewsAPI()
+  }, [])
 
   const aboutImageData = [
     { imageUrl: aboutImage },
@@ -108,6 +114,11 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+          <link rel="icon" href={Footer.Logo} />
+          <title>{Seodata.Title}</title>
+          <meta name="description" content={Seodata.Description} />
+      </Helmet>
       <HomeBanner />
       <Checks />
 
@@ -685,94 +696,26 @@ const Home = () => {
           <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
             <div class="carousel-inner testimonial-main">
-              <div class="carousel-item active" data-bs-interval="10000">
-                <div class="testimonial-div">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="168" height="24" viewBox="0 0 168 24"
-                    fill="none">
-                    <path
-                      d="M12 19.2884L19.416 24L17.448 15.12L24 9.14526L15.372 8.37474L12 0L8.628 8.37474L0 9.14526L6.552 15.12L4.584 24L12 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M48 19.2884L55.416 24L53.448 15.12L60 9.14526L51.372 8.37474L48 0L44.628 8.37474L36 9.14526L42.552 15.12L40.584 24L48 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M84 19.2884L91.416 24L89.448 15.12L96 9.14526L87.372 8.37474L84 0L80.628 8.37474L72 9.14526L78.552 15.12L76.584 24L84 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M120 19.2884L127.416 24L125.448 15.12L132 9.14526L123.372 8.37474L120 0L116.628 8.37474L108 9.14526L114.552 15.12L112.584 24L120 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M156 19.2884L163.416 24L161.448 15.12L168 9.14526L159.372 8.37474L156 0L152.628 8.37474L144 9.14526L150.552 15.12L148.584 24L156 19.2884Z"
-                      fill="#CBB33B" />
-                  </svg>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                    est laborum.</p>
-                  <span>ANANYA SINGH</span>
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="2000">
-                <div class="testimonial-div">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="168" height="24" viewBox="0 0 168 24"
-                    fill="none">
-                    <path
-                      d="M12 19.2884L19.416 24L17.448 15.12L24 9.14526L15.372 8.37474L12 0L8.628 8.37474L0 9.14526L6.552 15.12L4.584 24L12 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M48 19.2884L55.416 24L53.448 15.12L60 9.14526L51.372 8.37474L48 0L44.628 8.37474L36 9.14526L42.552 15.12L40.584 24L48 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M84 19.2884L91.416 24L89.448 15.12L96 9.14526L87.372 8.37474L84 0L80.628 8.37474L72 9.14526L78.552 15.12L76.584 24L84 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M120 19.2884L127.416 24L125.448 15.12L132 9.14526L123.372 8.37474L120 0L116.628 8.37474L108 9.14526L114.552 15.12L112.584 24L120 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M156 19.2884L163.416 24L161.448 15.12L168 9.14526L159.372 8.37474L156 0L152.628 8.37474L144 9.14526L150.552 15.12L148.584 24L156 19.2884Z"
-                      fill="#CBB33B" />
-                  </svg>
-
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                    est laborum.</p>
-                  <span>ANANYA SINGH</span>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="testimonial-div">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="168" height="24" viewBox="0 0 168 24"
-                    fill="none">
-                    <path
-                      d="M12 19.2884L19.416 24L17.448 15.12L24 9.14526L15.372 8.37474L12 0L8.628 8.37474L0 9.14526L6.552 15.12L4.584 24L12 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M48 19.2884L55.416 24L53.448 15.12L60 9.14526L51.372 8.37474L48 0L44.628 8.37474L36 9.14526L42.552 15.12L40.584 24L48 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M84 19.2884L91.416 24L89.448 15.12L96 9.14526L87.372 8.37474L84 0L80.628 8.37474L72 9.14526L78.552 15.12L76.584 24L84 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M120 19.2884L127.416 24L125.448 15.12L132 9.14526L123.372 8.37474L120 0L116.628 8.37474L108 9.14526L114.552 15.12L112.584 24L120 19.2884Z"
-                      fill="#CBB33B" />
-                    <path
-                      d="M156 19.2884L163.416 24L161.448 15.12L168 9.14526L159.372 8.37474L156 0L152.628 8.37474L144 9.14526L150.552 15.12L148.584 24L156 19.2884Z"
-                      fill="#CBB33B" />
-                  </svg>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                    est laborum.</p>
-                  <span>ANANYA SINGH</span>
-                </div>
-              </div>
+              {Reviews.map((review,index)=>{
+                return <div class={`carousel-item ${index===0?"active":""}`} data-bs-interval="3000">
+                          <div class="testimonial-div">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="168" height="24" viewBox="0 0 168 24"
+                              fill="none">
+                              {Array.from({length: review.rating}, (_, starIndex)=>(
+                                <path
+                                d={`M${12 + 36 * starIndex} 19.2884L${19.416 + 36 * starIndex} 24L${17.448 + 36 * starIndex} 15.12L${24 + 36 * starIndex} 9.14526L${15.372 + 36 * starIndex} 8.37474L${12 + 36 * starIndex} 0L${8.628 + 36 * starIndex} 8.37474L${0 + 36 * starIndex} 9.14526L${6.552 + 36 * starIndex} 15.12L${4.584 + 36 * starIndex} 24L${12 + 36 * starIndex} 19.2884Z`}
+                                fill="#CBB33B"
+                              />
+                                
+                              ))}
+                              
+                            </svg>
+                            <p>{review.text}</p>
+                            <span>{review.author_name}</span>
+                          </div>
+                        </div>
+              })}
+              
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
               data-bs-slide="prev">

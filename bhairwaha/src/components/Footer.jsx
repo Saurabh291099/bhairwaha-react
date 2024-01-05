@@ -1,7 +1,9 @@
 import React from 'react'
 import Accordion from 'react-bootstrap/Accordion';
+import Nav from 'react-bootstrap/Nav';
+import {Link} from 'react-router-dom'
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <>
       <section class="footer">
@@ -74,11 +76,12 @@ const Footer = () => {
             </div>
             <div class="col-sm-12 col-md-3 col-lg-3 d-flex flex-column foot-links">
               <h4>Links</h4>
-              <a href="#">Home</a>
-              <a href="#">Rooms</a>
-              <a href="#">Gallery</a>
-              <a href="#">Facilities </a>
-              <a href="#">Contact Us</a>
+              <Nav.Link><Link to="/">Home</Link></Nav.Link>
+              <Nav.Link><Link to={props.slug[0]}>About Us</Link></Nav.Link>
+              <Nav.Link><Link to={props.slug[12]}>Rooms</Link></Nav.Link>
+              <Nav.Link><Link to={props.slug[7]}>Gallery</Link></Nav.Link>
+              <Nav.Link><Link to={props.slug[5]}>Facilities</Link></Nav.Link>
+              <Nav.Link><Link to={props.slug[3]}>Contact Us</Link></Nav.Link>
             </div>
           </div>
         </div>
@@ -155,11 +158,12 @@ const Footer = () => {
               <Accordion.Header>Links</Accordion.Header>
               <Accordion.Body>
                 <div class="d-flex flex-column foot-links">
-                  <a href="#">Home</a>
-                  <a href="#">Rooms</a>
-                  <a href="#">Gallery</a>
-                  <a href="#">Facilities </a>
-                  <a href="#">Contact Us</a>
+                <Nav.Link><Link to="/">Home</Link></Nav.Link>
+                <Nav.Link><Link to={props.slug[0]}>About Us</Link></Nav.Link>
+                <Nav.Link><Link to={props.slug[12]}>Rooms</Link></Nav.Link>
+                <Nav.Link><Link to={props.slug[7]}>Gallery</Link></Nav.Link>
+                <Nav.Link><Link to={props.slug[5]}>Facilities</Link></Nav.Link>
+                <Nav.Link><Link to={props.slug[3]}>Contact Us</Link></Nav.Link>
                 </div>
               </Accordion.Body>
             </Accordion.Item>
@@ -168,10 +172,10 @@ const Footer = () => {
         <div class="footer-bottom">
           <div class="container">
             <div class="row">
-              <div class="col-sm-12 col-md-7 col-lg-6">
-                <a href="#">Terms & Condition</a> <span class="divider">&#124;</span>
-                <a href="#">Privacy policy</a> <span class="divider">&#124;</span>
-                <a href="#">Cancellation Policy</a>
+              <div class="col-sm-12 col-md-7 col-lg-6 d-flex">
+                <Nav.Link><Link to={props.slug[15]} >Terms & Condition </Link><span class="divider"> &#124; </span> </Nav.Link>
+                <Nav.Link><Link to={props.slug[9]} >Privacy policy </Link><span class="divider"> &#124; </span> </Nav.Link>
+                <Nav.Link><Link to={props.slug[12]} >Cancellation Policy</Link></Nav.Link>
               </div>
               <div class="col-sm-12 col-md-5 col-lg-6 text-center">
                 <p>© 2023 eazotel | All Rights Reserved</p>

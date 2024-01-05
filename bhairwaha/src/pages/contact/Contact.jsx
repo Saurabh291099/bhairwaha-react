@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Banner from '../../components/Banner'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -8,9 +8,11 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import './contact.css'
-const Contact = () => {
+import {Helmet} from 'react-helmet'
+import NoteContext from '../../context/notes/NoteContext';
+const Contact = ({Pagetitle,Seodata}) => {
 
-
+  const {Footer} = useContext(NoteContext);
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
@@ -24,7 +26,12 @@ const Contact = () => {
   };
   return (
     <>
-      <Banner />
+      <Helmet>
+          <link rel="icon" href={Footer.Logo} />
+          <title>{Seodata.Title}</title>
+          <meta name="description" content={Seodata.Description} />
+      </Helmet>
+      <Banner text={Pagetitle["Title"]} Image={Pagetitle["Image"]} />
 
 
 

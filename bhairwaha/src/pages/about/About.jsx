@@ -4,6 +4,7 @@ import '../../style/about.css'
 import '../../style/responsive.css'
 import Slider from "react-slick";
 import { Link } from 'react-router-dom'
+import {Helmet} from 'react-helmet'
 
 import aboutImage from '../../assets/images/aboutimage.png'
 import aboutpageImage from '../../assets/images/about-pageimg.png'
@@ -18,10 +19,8 @@ import bicycle from '../../assets/images/bicycle.png'
 import localculture from '../../assets/images/localculture.png'
 import historical from '../../assets/images/historical.png'
 import OfferSection from '../../components/OfferSection';
-const About = () => {
-
-  const { value, setValue } = useContext(NoteContext);
-
+const About = ({Pagetitle,Seodata}) => {
+  const {Footer} = useContext(NoteContext);
 
   const aboutImageData = [
     { imageUrl: aboutpageImage },
@@ -126,8 +125,13 @@ const About = () => {
 
   return (
     <>
+      <Helmet>
+          <link rel="icon" href={Footer.Logo} />
+          <title>{Seodata.Title}</title>
+          <meta name="description" content={Seodata.Description} />
+      </Helmet>
       <section className="about-banner">
-        <Banner />
+        <Banner text={Pagetitle["Title"]} Image={Pagetitle["Image"]} />
       </section>
 
 

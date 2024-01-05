@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './faclity.css'
 import Banner from '../../components/Banner'
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
+import {Helmet} from 'react-helmet'
 import FacilityContent from './FacilityContent';
 import aboutImage from '../../assets/images/about-pageimg.png'
 import superDelux from '../../assets/images/superdelux.png'
 import suiteRoom from '../../assets/images/suiteroom.png'
 import steam from '../../assets/images/steam-sunna.png'
+import NoteContext from '../../context/notes/NoteContext';
 
-const Facility = () => {
+const Facility = ({Pagetitle,Seodata}) => {
+  const {Footer} = useContext(NoteContext);
 
   const facility = [
     { 'heading': 'In room Dinning', 'para': 'Enjoy the convenience of in-room dining at Bhairahawa Garden Resort. Experience the delight of dining in your own cosy haven. From breakfast in bed to a candlelit dinner for two, our room service caters to your every craving. Its the easy way to dine without leaving your room at Lumbinis best resort.', 'images': [aboutImage, superDelux, suiteRoom, steam] },
@@ -61,7 +64,12 @@ const Facility = () => {
 
   return (
     <>
-      <Banner />
+      <Helmet>
+          <link rel="icon" href={Footer.Logo} />
+          <title>{Seodata.Title}</title>
+          <meta name="description" content={Seodata.Description} />
+      </Helmet>
+      <Banner text={Pagetitle["Title"]} Image={Pagetitle["Image"]} />
       <div className='faclity-section'>
         <section className='aboutPage-Facility-section'>
           <div class="container container-wrapper">

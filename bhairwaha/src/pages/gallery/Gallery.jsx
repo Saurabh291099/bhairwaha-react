@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../../style/gallery.css'
 import Banner from '../../components/Banner'
 import ImageSlider from '../../components/ImageSlider'
 import { Link } from 'react-router-dom'
+import {Helmet} from 'react-helmet'
+import NoteContext from '../../context/notes/NoteContext';
 
 
 import aboutImage from '../../assets/images/about-pageimg.png'
@@ -11,7 +13,8 @@ import suiteRoom from '../../assets/images/suiteroom.png'
 import steam from '../../assets/images/steam-sunna.png'
 import OfferSection from '../../components/OfferSection'
 
-const Gallery = () => {
+const Gallery = ({Pagetitle,Seodata}) => {
+  const { Footer} = useContext(NoteContext);
 
   const hotelHeading = 'Hotel'
 
@@ -47,44 +50,17 @@ const Gallery = () => {
     { 'heading': 'NEAR BY PLACES', 'images': [aboutImage, superDelux, suiteRoom, steam] },
   ]
 
-  // const settings1 = {
-  //     dots: false,
-  //     infinite: true,
-  //     speed: 500,
-  //     slidesToShow: 3,
-  //     slidesToScroll: 1,
-  //     responsive: [
-  //         {
-  //             breakpoint: 1024,
-  //             settings: {
-  //                 slidesToShow: 3,
-  //                 slidesToScroll: 3,
-  //                 infinite: true,
-  //                 dots: true
-  //             }
-  //         },
-  //         {
-  //             breakpoint: 600,
-  //             settings: {
-  //                 slidesToShow: 2,
-  //                 slidesToScroll: 2,
-  //                 initialSlide: 2
-  //             }
-  //         },
-  //         {
-  //             breakpoint: 480,
-  //             settings: {
-  //                 slidesToShow: 1,
-  //                 slidesToScroll: 1
-  //             }
-  //         }
-  //     ]
-  // };
+
 
 
   return (
     <>
-      <Banner />
+      <Helmet>
+          <link rel="icon" href={Footer.Logo} />
+          <title>{Seodata.Title}</title>
+          <meta name="description" content={Seodata.Description} />
+      </Helmet>
+      <Banner text={Pagetitle["Title"]} Image={Pagetitle["Image"]} />
       {/* <ImageSlider GalleryImage={gallery} /> */}
 
       {gallery.map((data) => {

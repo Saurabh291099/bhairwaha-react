@@ -11,7 +11,7 @@ import suiteRoom from '../../assets/images/suiteroom.png'
 import steam from '../../assets/images/steam-sunna.png'
 import OfferSection from '../../components/OfferSection';
 
-const Rooms = () => {
+const Rooms = ({Pagetitle}) => {
 
 
   const superDeluxRoom = [
@@ -114,7 +114,7 @@ const Rooms = () => {
 
   return (
     <>
-      <Banner />
+      <Banner text={Pagetitle["Title"]} Image={Pagetitle["Image"]} />
 
 
       {/* Rooms Start  */}
