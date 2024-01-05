@@ -1,0 +1,76 @@
+.contact-section {
+    padding: 4rem 0;
+}
+
+.contact-form {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.contact-row {
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+.contact-row .contact-row-iner{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.contact-phone{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.contact-wrapper h4 {
+    color:#8A1412;
+
+    /* Header */
+    font-family: Playfair Display;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75rem;
+    /* 116.667% */
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+
+}
+
+.contact-form .form-row {
+    gap: 0.9rem;
+}
+
+.contact-form .form-row input {
+    border: 0.5px solid #282828;
+    border-radius: 0;
+}
+
+.contact-form .form-row input::placeholder {
+    color: #9B9B9B;
+
+    /* Body */
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5rem;
+    /* 150% */
+}
+
+
+.contact-btn {
+    display: inline-flex;
+    padding: 0.7rem 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    background: #CBB33B;
+    color: #fff;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+}

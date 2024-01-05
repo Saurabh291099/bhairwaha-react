@@ -1,0 +1,77 @@
+/* .checks-wrapper {
+    margin-top: -2rem;
+
+} */
+
+.checkig-row {
+    padding: 1rem 2rem;
+    background-color: #fff;
+}
+
+.checkig-row input {
+    border: 0;
+}
+
+.checking-col {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.cheks-input-div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cheks-input-div .dropdown-menu.show {
+    transform: translate3d(-28px, 40px, 0px);
+}
+
+
+.cheks-input-div .dropdown .dropdown-toggle {
+    background: transparent;
+    color: black;
+    border: 0;
+    padding: 0;
+}
+
+.count-drop-div{
+    width: 215px;
+}
+
+.count-div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0.8rem 0;
+}
+
+
+
+.count-div .counter{
+    display: flex;
+}
+
+.count-div .counter button{
+    width: 35px;
+    border: 0;
+    background: #CBB33B;
+    color: #fff;
+    font-weight: 700;
+}
+
+.count-div .counter span{
+    width: 35px;
+}
+
+
+@media screen and (max-width:600px) {
+    .checking-col{
+        margin: 0.8rem 0;
+    }
+
+    .checks-wrapper{
+        display: none;
+    }
+}
