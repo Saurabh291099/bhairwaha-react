@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Link } from 'react-router-dom'
 import Slider from "react-slick";
@@ -6,16 +6,11 @@ import aboutImage from '../../assets/images/aboutimage.png'
 import superDelux from '../../assets/images/superdelux.png'
 import suiteRoom from '../../assets/images/suiteroom.png'
 import steam from '../../assets/images/steam-sunna.png'
+import NoteContext from '../../context/notes/NoteContext';
 
 
 const FacilityContent = ({ FacilityImages, heading }) => {
-
-    // const suiteRoomData = [
-    //     { imageUrl: suiteRoom },
-    //     { imageUrl: superDelux },
-    //     { imageUrl: aboutImage },
-    //     { imageUrl: steam },
-    // ];
+    const { DataToarrange } = useContext(NoteContext);
 
 
     const settings = {
@@ -44,8 +39,8 @@ const FacilityContent = ({ FacilityImages, heading }) => {
 
                 </div>
                 <div class="col-lg-6 text-div">
-                    <h2>{heading}</h2>
-                    <p>Enjoy the convenience of in-room dining at Bhairahawa Garden Resort. Experience the delight of dining in your own cosy haven. From breakfast in bed to a candlelit dinner for two, our room service caters to your every craving. It's the easy way to dine without leaving your room at Lumbini's best resort.</p>
+                    <h2>{DataToarrange[1].Heading}</h2>
+                    <p>{DataToarrange[1].Text}</p>
                 </div>
             </div>
         </>

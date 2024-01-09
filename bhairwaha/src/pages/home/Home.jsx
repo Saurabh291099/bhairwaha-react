@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import HomeBanner from './HomeBanner'
 import Checks from './Checks'
 import { Link } from 'react-router-dom'
-import {Helmet} from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 // images import 
 
@@ -27,11 +27,16 @@ import NoteContext from '../../context/notes/NoteContext';
 // import "slick-carousel/slick/slick-theme.css";
 
 
-const Home = ({Seodata}) => {
-  const { ReviewsAPI,Reviews,Footer} = useContext(NoteContext);
+const Home = ({ Seodata }) => {
+  const { About } = useContext(NoteContext);
+
+  const { ReviewsAPI, Reviews, Footer, Nearby, SectionTitles, Engine } = useContext(NoteContext);
   useEffect(() => {
     ReviewsAPI()
   }, [])
+
+
+  console.log(SectionTitles)
 
   const aboutImageData = [
     { imageUrl: aboutImage },
@@ -115,9 +120,9 @@ const Home = ({Seodata}) => {
   return (
     <div>
       <Helmet>
-          <link rel="icon" href={Footer.Logo} />
-          <title>{Seodata.Title}</title>
-          <meta name="description" content={Seodata.Description} />
+        <link rel="icon" href={Footer.Logo} />
+        <title>{Seodata.Title}</title>
+        <meta name="description" content={Seodata.Description} />
       </Helmet>
       <HomeBanner />
       <Checks />
@@ -128,13 +133,8 @@ const Home = ({Seodata}) => {
         <div class="container container-wrapper">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6 about-text">
-              <h2>About Bhairahawa Garden Resort </h2>
-              <p>Home to the Gurkha soldiers and eight of the world's ten tallest mountains, including the
-                mighty Everest, Nepal stands on the world's roof. Bhairahawa Garden Resort is a peaceful
-                escape for travellers in the heart of Lumbini. Our 4-star retreat combines modern comforts
-                with the cultural heritage of Buddha's birthplace. Enjoy a calm garden, delightful dining,
-                and cosy rooms with city views. Whether exploring historic sites or relaxing with our
-                amenities, you'll experience the true spirit of Nepal with Bhairahawa Resort.</p>
+              <h2>{About.Heading}</h2>
+              <p>{About.Text}</p>
               <div className="custom-btn-div">
                 <Link to='' class="custom-btn">LEARN MORE</Link>
               </div>
@@ -144,7 +144,7 @@ const Home = ({Seodata}) => {
                 {aboutImageData.map((data) => {
                   return (
                     <div>
-                      <img src={data.imageUrl} alt="About Images" />
+                      <img src={About.url} alt="About Images" />
                     </div>
                   )
                 })}
@@ -179,8 +179,8 @@ const Home = ({Seodata}) => {
 
       <section class="room-section section">
         <div class="container">
-          <h2 class="section-heading">OUR ROOMS</h2>
-          <p class="section-para">Luxury Living Tailored to Every Budget at Bhairahawa Resort in Lumbini.</p>
+          <h2 class="section-heading">{SectionTitles.Rooms.Title}</h2>
+          <p class="section-para">{SectionTitles.Rooms.Description}</p>
           <div class="container container-wrapper">
             <div class="row phone-row">
               <div class="col-sm-12 col-md-12 col-lg-6 text-div">
@@ -356,7 +356,7 @@ const Home = ({Seodata}) => {
 
                 </div>
                 <div className="custom-btn-div">
-                  <Link to='' class="custom-btn">BOOK NOW</Link>
+                  <Link to={Engine} target='_blank' class="custom-btn">BOOK NOW</Link>
                 </div>
 
 
@@ -373,26 +373,6 @@ const Home = ({Seodata}) => {
                   })}
                 </Slider>
 
-
-                {/* <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src={superDelux} class="d-block w-100"
-                        alt="Super Deluxe " />
-
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button"
-                    data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button"
-                    data-bs-target="#carouselExampleControls2" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div> */}
               </div>
 
             </div>
@@ -414,24 +394,6 @@ const Home = ({Seodata}) => {
                   })}
                 </Slider>
 
-                {/* <div id="carouselExampleControls3" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src={suiteRoom} class="d-block w-100"
-                        alt="Suite Room " />
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button"
-                    data-bs-target="#carouselExampleControls3" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button"
-                    data-bs-target="#carouselExampleControls3" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div> */}
               </div>
 
               <div class="col-lg-6 text-div">
@@ -607,7 +569,7 @@ const Home = ({Seodata}) => {
 
                 </div>
                 <div className="custom-btn-div">
-                  <Link to='' class="custom-btn">BOOK NOW</Link>
+                  <Link to={Engine} target='_blank' class="custom-btn">BOOK NOW</Link>
                 </div>
 
               </div>
@@ -626,8 +588,8 @@ const Home = ({Seodata}) => {
       <section class="facility-section section">
 
         <div class="container">
-          <h2 class="section-heading">HOTEL FACILITIES</h2>
-          <p class="section-para">With the Best Luxury Spa, Salon and Fitness Experiences.</p>
+          <h2 class="section-heading">{SectionTitles.Facilities.Title}</h2>
+          <p class="section-para">{SectionTitles.Facilities.Description}</p>
           {/* <!-- Swiper --> */}
           <div class="wrapper-div">
 
@@ -647,7 +609,7 @@ const Home = ({Seodata}) => {
 
           </div>
           <div class="d-flex w-100 justify-content-center custom-btn-div">
-            <Link to='' class="custom-btn">BOOK NOW</Link>
+            <Link to={Engine} target='_blank' class="custom-btn">BOOK NOW</Link>
           </div>
         </div>
       </section>
@@ -656,19 +618,16 @@ const Home = ({Seodata}) => {
 
       <section class="nearby-places section">
         <div class="container">
-          <h2 class="section-heading">NEAR BY PLACES</h2>
-          <p class="section-para">A Selection of Iconic Sites Related to Architecture, Mythology and Historic Culture.</p>
-
-
-
+          <h2 class="section-heading">{SectionTitles.Nearby.Title}</h2>
+          <p class="section-para">{SectionTitles.Nearby.Description}</p>
           <div class="wrapper-div-nearby">
             <Slider {...settings1} className='image-slider'>
-              {nearByPlace.map((data) => {
+              {Nearby.map((data) => {
                 return (
                   <div class="nearby-slider">
-                    <img src={data.imageUrl} alt="NEAR BY PLACES " />
+                    <img src={data.Image} alt="NEAR BY PLACES " />
                     <div class="slider-caption">
-                      <span>{data.text}</span>
+                      <span>{data.Place}</span>
                     </div>
                   </div>
                 )
@@ -680,7 +639,6 @@ const Home = ({Seodata}) => {
           <div class="d-flex w-100 justify-content-center">
             <div className="custom-btn-div">
               <Link to='' class="custom-btn">VIEW GALLERY</Link>
-
             </div>
           </div>
         </div>
@@ -691,31 +649,31 @@ const Home = ({Seodata}) => {
       <section class="testimonial-section section">
         <div class="container testimonial-wrapper">
 
-          <h2 class="section-heading">TESTIMONIALS</h2>
+          <h2 class="section-heading">{SectionTitles.Testimonial.Title}</h2>
 
           <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
             <div class="carousel-inner testimonial-main">
-              {Reviews.map((review,index)=>{
-                return <div class={`carousel-item ${index===0?"active":""}`} data-bs-interval="3000">
-                          <div class="testimonial-div">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="168" height="24" viewBox="0 0 168 24"
-                              fill="none">
-                              {Array.from({length: review.rating}, (_, starIndex)=>(
-                                <path
-                                d={`M${12 + 36 * starIndex} 19.2884L${19.416 + 36 * starIndex} 24L${17.448 + 36 * starIndex} 15.12L${24 + 36 * starIndex} 9.14526L${15.372 + 36 * starIndex} 8.37474L${12 + 36 * starIndex} 0L${8.628 + 36 * starIndex} 8.37474L${0 + 36 * starIndex} 9.14526L${6.552 + 36 * starIndex} 15.12L${4.584 + 36 * starIndex} 24L${12 + 36 * starIndex} 19.2884Z`}
-                                fill="#CBB33B"
-                              />
-                                
-                              ))}
-                              
-                            </svg>
-                            <p>{review.text}</p>
-                            <span>{review.author_name}</span>
-                          </div>
-                        </div>
+              {Reviews.map((review, index) => {
+                return <div class={`carousel-item ${index === 0 ? "active" : ""}`} data-bs-interval="3000">
+                  <div class="testimonial-div">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="168" height="24" viewBox="0 0 168 24"
+                      fill="none">
+                      {Array.from({ length: review.rating }, (_, starIndex) => (
+                        <path
+                          d={`M${12 + 36 * starIndex} 19.2884L${19.416 + 36 * starIndex} 24L${17.448 + 36 * starIndex} 15.12L${24 + 36 * starIndex} 9.14526L${15.372 + 36 * starIndex} 8.37474L${12 + 36 * starIndex} 0L${8.628 + 36 * starIndex} 8.37474L${0 + 36 * starIndex} 9.14526L${6.552 + 36 * starIndex} 15.12L${4.584 + 36 * starIndex} 24L${12 + 36 * starIndex} 19.2884Z`}
+                          fill="#CBB33B"
+                        />
+
+                      ))}
+
+                    </svg>
+                    <p>{review.text}</p>
+                    <span>{review.author_name}</span>
+                  </div>
+                </div>
               })}
-              
+
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
               data-bs-slide="prev">

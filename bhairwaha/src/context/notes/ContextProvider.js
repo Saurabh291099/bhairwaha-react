@@ -3,7 +3,7 @@ import NoteContext from './NoteContext';
 
 const ContextProvider = ({ children }) => {
 
-    const [websiteData,setwebsiteData] = useState({
+    const [websiteData, setwebsiteData] = useState({
         "About": {
             "Heading": "About Bhairahawa Garden Resort",
             "Text": "<p>Home to the Gurkha soldiers and eight of the world's ten tallest mountains, including the mighty Everest, Nepal stands on the world's roof. Bhairahawa Garden Resort is a peaceful escape for travellers in the heart of Lumbini. Our 4-star retreat combines modern comforts with the cultural heritage of Buddha's birthplace. Enjoy a calm garden, delightful dining, and cosy rooms with city views. Whether exploring historic sites or relaxing with our amenities, you'll experience the true spirit of Nepal with Bhairahawa Resort.</p><p><strong>Facilities:</strong></p><p>Welcome to <strong>Bhairahawa Garden Resort,</strong> where your comfort is our top priority. We've got you covered with facilities designed to make your stay delightful. Enjoy complimentary Wi-Fi across our resort in Lumbini so you can stay connected effortlessly. Take a refreshing dip in our inviting swimming pool to beat the heat, and rest easy knowing there's hassle-free parking available. </p><p> Relax in peace at our wellness &amp; spa centre, which offers refreshing treatments for your well-being. Maintain your training routine in our well-equipped fitness facility, and relax in our sauna and steam rooms. The bar at Bhairahawa Resort Lumbini is a comfortable place to enjoy a range of beverages. Host successful events in our spacious conference and meeting rooms, adapted to all your business requirements. </p><p> For eco-conscious travellers, our resort in Lumbini offers EV charging points for electric vehicles. Explore the surroundings with ease using our convenient transportation services. Stay tuned for the upcoming addition of our casino, promising excitement and entertainment. From the moment you arrive, our hospitality shines through with welcome drinks, refreshing face towels, and traditional garlands. Your rooms at Garden Resort Lumbini have daily essentials like mineral water, a tea and coffee maker, and full amenities for your comfort.</p><p>Experience multi-cuisine delights at our resort in Lumbini, relax with a flat-screen LED TV and satellite connection, and experience the ideal room environment with hot and cold air conditioning. Our 10-passenger lift makes it easy to get around, and calming music adds to the whole experience. At Bhairahawa Garden Resort, we are dedicated to making your stay memorable and enjoyable. </p><p> We look forward to hosting you in our comfortable and welcoming retreat</p><p><br></p><p><br></p>",
@@ -223,7 +223,9 @@ const ContextProvider = ({ children }) => {
             {
                 "Category": "Events",
                 "Images": [
-                    "https://www.thebrokebackpacker.com/wp-content/uploads/2020/02/Kyoto-Overall-Best-Place-to-Stay-in-Japan.jpg"
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Restaurant/IMG_0940.jpg",
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Restaurant/IMG_0983.jpg",
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Restaurant/IMG_0940.jpg"
                 ],
                 "Required": false
             },
@@ -254,6 +256,8 @@ const ContextProvider = ({ children }) => {
                 "Category": "Nearby",
                 "Images": [
                     "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Nearby/11.webp",
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Nearby/33.jpg",
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Nearby/11.webp",
                     "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Nearby/33.jpg"
                 ],
                 "Required": true
@@ -262,6 +266,8 @@ const ContextProvider = ({ children }) => {
                 "Category": "Lobby",
                 "Images": [
                     "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Lobby/l1.jpg",
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Lobby/l2.jpg",
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/images/e1e0d99c-b36d-4cb9-908f-0910d9169c64.jpg",
                     "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Lobby/l2.jpg",
                     "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/images/e1e0d99c-b36d-4cb9-908f-0910d9169c64.jpg"
                 ],
@@ -281,13 +287,21 @@ const ContextProvider = ({ children }) => {
             {
                 "Category": "Spa and Wellness",
                 "Images": [
-                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Home+/Gallery/Spa_Wellness.jpg"
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Home+/Gallery/Spa_Wellness.jpg",
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Home+/Gallery/Spa_Wellness.jpg",
+                    
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Home+/Gallery/Spa_Wellness.jpg",
+                    
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Home+/Gallery/Spa_Wellness.jpg",
                 ],
                 "Required": false
             },
             {
                 "Category": "Bar",
                 "Images": [
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/images/99cafaeb-26cd-4ed8-b8d1-ff797f60cd60.jpg",
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/images/99cafaeb-26cd-4ed8-b8d1-ff797f60cd60.jpg",
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/images/99cafaeb-26cd-4ed8-b8d1-ff797f60cd60.jpg",
                     "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/images/99cafaeb-26cd-4ed8-b8d1-ff797f60cd60.jpg"
                 ],
                 "Required": false
@@ -295,7 +309,10 @@ const ContextProvider = ({ children }) => {
             {
                 "Category": "Guests",
                 "Images": [
-                    "https://d1ias3p97xmuek.cloudfront.net/myplacehotels.com-341489493/cms/cache/v2/63e16447a4bee.jpg/380x310/fit/80/9d7fe4dab160bddcd75a65159277a3ed.jpg"
+                    "https://d1ias3p97xmuek.cloudfront.net/myplacehotels.com-341489493/cms/cache/v2/63e16447a4bee.jpg/380x310/fit/80/9d7fe4dab160bddcd75a65159277a3ed.jpg",
+                    "https://d1ias3p97xmuek.cloudfront.net/myplacehotels.com-341489493/cms/cache/v2/63e16447a4bee.jpg/380x310/fit/80/9d7fe4dab160bddcd75a65159277a3ed.jpg",
+                    "https://d1ias3p97xmuek.cloudfront.net/myplacehotels.com-341489493/cms/cache/v2/63e16447a4bee.jpg/380x310/fit/80/9d7fe4dab160bddcd75a65159277a3ed.jpg",
+                    "https://d1ias3p97xmuek.cloudfront.net/myplacehotels.com-341489493/cms/cache/v2/63e16447a4bee.jpg/380x310/fit/80/9d7fe4dab160bddcd75a65159277a3ed.jpg",
                 ],
                 "Required": false
             }
@@ -631,7 +648,7 @@ const ContextProvider = ({ children }) => {
             },
             "Testimonial": {
                 "Description": "",
-                "Title": ""
+                "Title": "Testimonial"
             }
         },
         "SectionsVisible": {
@@ -1190,40 +1207,54 @@ const ContextProvider = ({ children }) => {
                 "TermsServices": "<ol><li>Booking and Reservation:<ul><li>Reservations can be made online through our website, in person, or via authorized third-party booking platforms.</li><li>Room rates and availability are subject to change without notice. It is advisable to confirm the current rates and availability before making a reservation.</li><li>All reservations require a valid credit card or advance payment to secure the booking.</li></ul></li><li>Check-In and Check-Out:<ul><li>Check-in is from 14:00 onward, and check-out time is 12 noon.</li><li>Early check-in and late check-out are subject to availability and may incur additional charges.</li></ul></li><li>Payment and Cancellation:<ul><li>Payment for your stay, including taxes and any additional charges, must be settled upon check-in.</li><li>Cancellation policies vary based on the rate plan chosen. Please review your reservation confirmation for specific cancellation terms.</li></ul></li><li>Property Rules and Regulations:<ul><li>Smoking is strictly prohibited inside all indoor areas of the Property. Designated smoking areas are available.</li><li>Pets are prohibited if no prior arrangements have been made with the Property.</li><li>Parties and gatherings that disturb the peace and comfort of other guests are not permitted.</li><li>Please respect the Property's noise policies, especially during quiet hours.</li></ul></li><li>Facilities and Amenities:<ul><li>Use of the swimming pool at the best resort in Lumbini is subject to posted rules and hours of operation. Lifeguards may not be on duty; swim at your own risk.</li><li>Sea-view rooms at Bhairahawa Resort are assigned based on availability and room category booked.</li></ul></li><li>Liability:<ul><li>Bhairahawa Garden Resort is not liable for loss, theft, or damage to personal belongings during your stay.</li><li>Guests are responsible for any damage to the Property or its facilities caused by their actions.</li></ul></li><li>Privacy and Data Protection:<ul><li>By making a reservation at the best resort in Lumbini, you consent to collecting and using your personal information following our Privacy Policy.</li></ul></li><li>Dispute Resolution:<ul><li>Any disputes or claims arising from your stay at the Property shall be governed by the laws of the jurisdiction where the Property is located.</li><li>All disputes shall be resolved through arbitration or mediation per applicable laws.</li></ul></li><li>Modification of Terms:<ul><li>Bhairahawa Garden Resort reserves the right to modify or update these Terms without prior notice. Please check our website for the most current version of the Terms. </li></ul></li></ol><p>By booking a stay at the best resort in Lumbini, you acknowledge that you have read, understood, and agree to abide by these Terms and Conditions. If you do not agree with these Terms, please do not proceed with your reservation. Please contact our customer service team for assistance if you have any questions or concerns. </p><p> <strong>Bhairahawa Garden Resort, Nepal</strong></p>"
             }
         ]
-      })
+    })
 
-    const [slugs,setslugs] = useState(websiteData.Slugs)
-    const [PageTitle,setPageTitles] = useState(websiteData.PagesTitles)
-    const [SeoData,setSeoData] = useState(websiteData.SeoOptimisation)
-    const [Banner,setBanner] = useState(websiteData.Banner)
-    const [Footer,setFooter] = useState(websiteData.Footer)
+    const [slugs, setslugs] = useState(websiteData.Slugs)
+    const [PageTitle, setPageTitles] = useState(websiteData.PagesTitles)
+    const [SeoData, setSeoData] = useState(websiteData.SeoOptimisation)
+    const [Banner, setBanner] = useState(websiteData.Banner)
+    const [Footer, setFooter] = useState(websiteData.Footer)
+    const [About, setAbout] = useState(websiteData.About)
+    const [Nearby, setNearby] = useState(websiteData.Nearby)
+    const [DataToarrange, setDataToarrange] = useState(websiteData.DataToarrange)
+    const [Menu, setMenu] = useState(websiteData.Menu)
+    const [SectionTitles, setSectionTitles] = useState(websiteData.SectionTitles)
+    const [Engine, setEngine] = useState(websiteData.Engine)
+    const [Gallery, setGallery] = useState(websiteData.Gallery)
+    const [Location, setLocation] = useState(websiteData.Location)
+    const [Links, setLinks] = useState(websiteData.Links)
+
+    
+
+    
 
     // WEBSITE DATA API
     // Rooms API
     // Reviews API
-    const [Reviews,setReviews] = useState([])
-    const ReviewsAPI = async()=>{
+    const [Reviews, setReviews] = useState([])
+    const ReviewsAPI = async () => {
         try {
             const response = await fetch(`https://nexon.eazotel.com/google/reviews/17714494-3c47-4f31-9f4e-585fbc799984`, {
-              method: "GET",
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-              },
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
             });
             const json = await response.json();
             setReviews(json.Reviews)
-          } catch (error) {
+        } catch (error) {
             console.error("Error fetching check-in data:", error);
-          }
+        }
     }
-  
+
     return (
-        <NoteContext.Provider value={{ websiteData,slugs,PageTitle,SeoData,Banner,Footer,
-        
-        // Reviews
-        ReviewsAPI,Reviews
-    }}>
+        <NoteContext.Provider value={{
+            websiteData, slugs, PageTitle, SeoData, Banner, Footer, About, DataToarrange, Nearby, Menu, SectionTitles, Location, Engine, Gallery,Links,
+
+            // Reviews
+            ReviewsAPI, Reviews
+        }}>
             {children}
         </NoteContext.Provider>
     );

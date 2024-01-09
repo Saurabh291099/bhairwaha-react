@@ -4,7 +4,7 @@ import '../../style/about.css'
 import '../../style/responsive.css'
 import Slider from "react-slick";
 import { Link } from 'react-router-dom'
-import {Helmet} from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import aboutImage from '../../assets/images/aboutimage.png'
 import aboutpageImage from '../../assets/images/about-pageimg.png'
@@ -19,8 +19,12 @@ import bicycle from '../../assets/images/bicycle.png'
 import localculture from '../../assets/images/localculture.png'
 import historical from '../../assets/images/historical.png'
 import OfferSection from '../../components/OfferSection';
-const About = ({Pagetitle,Seodata}) => {
-  const {Footer} = useContext(NoteContext);
+const About = ({ Pagetitle, Seodata }) => {
+  const { Footer } = useContext(NoteContext);
+  const { About } = useContext(NoteContext);
+  const { DataToarrange, Engine } = useContext(NoteContext);
+
+  console.log(Footer)
 
   const aboutImageData = [
     { imageUrl: aboutpageImage },
@@ -126,16 +130,16 @@ const About = ({Pagetitle,Seodata}) => {
   return (
     <>
       <Helmet>
-          <link rel="icon" href={Footer.Logo} />
-          <title>{Seodata.Title}</title>
-          <meta name="description" content={Seodata.Description} />
+        <link rel="icon" href={Footer.Logo} />
+        <title>{Seodata.Title}</title>
+        <meta name="description" content={Seodata.Description} />
       </Helmet>
       <section className="about-banner">
         <Banner text={Pagetitle["Title"]} Image={Pagetitle["Image"]} />
       </section>
 
 
-{/* 
+      {/* 
       <div>
         <p>Context Value: {value}</p>
         <button onClick={() => setValue('New value')}>Change Value</button>
@@ -146,23 +150,18 @@ const About = ({Pagetitle,Seodata}) => {
         <div class="container container-wrapper">
           <div class="row aboutPage-row">
             <div class="col-sm-12 col-md-12 col-lg-6 about-text">
-              <h2>About Bhairahawa Garden Resort</h2>
-              <p>Home to the Gurkha soldiers and eight of the world's ten tallest mountains, including the mighty Everest, Nepal stands on the world's roof. Bhairahawa Garden Resort is a peaceful escape for travellers in the heart of Lumbini. Our 4-star retreat combines modern comforts with the cultural heritage of Buddha's birthplace. Enjoy a calm garden, delightful dining, and cosy rooms with city views. Whether exploring historic sites or relaxing with our amenities, you'll experience the true spirit of Nepal with Bhairahawa Resort.
-
-                Welcome to Bhairahawa Garden Resort, where your comfort is our top priority. We've got you covered with facilities designed to make your stay delightful. Enjoy complimentary Wi-Fi across our resort in Lumbini so you can stay connected effortlessly. Take a refreshing dip in our inviting swimming pool to beat the heat, and rest easy knowing there's hassle-free parking available.
-
-                Relax in peace at our wellness & spa centre, which offers refreshing treatments  for your well-being. Maintain your training
-              </p>
-              {/* <div className="custom-btn-div">
-                  <Link to='' class="custom-btn">LEARN MORE</Link>
-                </div> */}
+              <h2>{About.Heading}</h2>
+              <p>{About.Text}</p>
+              <div className="custom-btn-div">
+                <Link to='' class="custom-btn">LEARN MORE</Link>
+              </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6 image-div">
               <Slider {...settings} className='image-slider'>
                 {aboutImageData.map((data) => {
                   return (
                     <div>
-                      <img src={data.imageUrl} alt="About Images" />
+                      <img src={About.url} alt="About Images" />
                     </div>
                   )
                 })}
@@ -677,7 +676,7 @@ const About = ({Pagetitle,Seodata}) => {
         </div>
 
         <div className="about-btn-div">
-          <Link to='' class="custom-btn">BOOK NOW</Link>
+          <Link to={Engine} target='_blank' class="custom-btn">BOOK NOW</Link>
         </div>
       </section>
 
@@ -756,16 +755,16 @@ const About = ({Pagetitle,Seodata}) => {
 
       <section class="nearby-places section thingtodo-section">
         <div class="container">
-          <h2 class="section-heading">Things to do in Lumbini</h2>
-          <p class="section-para">Surrounded by diverse flavors, landscapes, spirituality, and history, Bhairahawa Garden Resort is the closest accommodation from the birthplace of Lord Buddha. It has numerous activities to engage with. Try delicious local street food, bike to discover the countryside, and experience peaceful meditation spots. Visit historic sites like the Maya Devi Temple and involve yourself in the local cultural heritage with unique monasteries and pagodas.</p>
+          <h2 class="section-heading">{DataToarrange[0].Heading}</h2>
+          <p class="section-para">{DataToarrange[0].Text}</p>
           <div class="wrapper-div-nearby thingstodo-wrapper">
             <Slider {...settings1} className='image-slider'>
-              {thingsTodo.map((data) => {
+              {DataToarrange[0].Images.map((data) => {
                 return (
                   <div class="nearby-slider">
-                    <img src={data.imageUrl} alt="Things to do" />
+                    <img src={data.Image} alt="Things to do" />
                     <div class="slider-caption">
-                      <span>{data.text}</span>
+                      <span>{data.Heading}</span>
                     </div>
                   </div>
                 )

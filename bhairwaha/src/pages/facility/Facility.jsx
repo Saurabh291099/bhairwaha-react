@@ -13,6 +13,8 @@ import NoteContext from '../../context/notes/NoteContext';
 
 const Facility = ({Pagetitle,Seodata}) => {
   const {Footer} = useContext(NoteContext);
+  const { DataToarrange } = useContext(NoteContext);
+  const { Menu } = useContext(NoteContext);
 
   const facility = [
     { 'heading': 'In room Dinning', 'para': 'Enjoy the convenience of in-room dining at Bhairahawa Garden Resort. Experience the delight of dining in your own cosy haven. From breakfast in bed to a candlelit dinner for two, our room service caters to your every craving. Its the easy way to dine without leaving your room at Lumbinis best resort.', 'images': [aboutImage, superDelux, suiteRoom, steam] },
@@ -87,12 +89,12 @@ const Facility = ({Pagetitle,Seodata}) => {
             <h2 class="section-heading my-4">OUR MENU INCLUDES</h2>
             <div class="wrapper-div-nearby thingstodo-wrapper">
               <Slider {...settings1} className='image-slider'>
-                {nearByPlace.map((data) => {
+                {Menu.map((data) => {
                   return (
                     <div class="nearby-slider">
-                      <img src={data.imageUrl} alt="Things to do" />
+                      <img src={data.Image} alt="Things to do" />
                       <div class="slider-caption">
-                        <span>{data.text}</span>
+                        <span>{data.Name}</span>
                       </div>
                     </div>
                   )

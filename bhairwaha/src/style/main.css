@@ -17,6 +17,11 @@ p {
 
 a {
     text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: rgb(195, 182, 182);
 }
 
 
@@ -57,10 +62,10 @@ a {
 }
 
 
-.nav-book .custom-btn{
+.nav-book .custom-btn {
     width: 120px;
 }
-  
+
 
 
 
@@ -151,7 +156,7 @@ a {
 
 .custom-btn {
     display: inline-flex;
-    padding: 1rem 3rem;
+    padding: 1rem 1rem;
     justify-content: center;
     align-items: center;
     background: #CBB33B;
@@ -379,6 +384,11 @@ a {
     font-weight: 300;
     line-height: 1.5rem;
     /* 150% */
+
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 

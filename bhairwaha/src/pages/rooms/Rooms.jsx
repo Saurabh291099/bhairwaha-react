@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
 import Banner from '../../components/Banner'
 import { Link } from 'react-router-dom'
 import Slider from "react-slick";
@@ -10,8 +11,12 @@ import superDelux from '../../assets/images/superdelux.png'
 import suiteRoom from '../../assets/images/suiteroom.png'
 import steam from '../../assets/images/steam-sunna.png'
 import OfferSection from '../../components/OfferSection';
+import NoteContext from '../../context/notes/NoteContext';
 
-const Rooms = ({Pagetitle}) => {
+
+const Rooms = ({ Pagetitle }) => {
+
+  const { Engine } = useContext(NoteContext);
 
 
   const superDeluxRoom = [
@@ -298,7 +303,7 @@ const Rooms = ({Pagetitle}) => {
 
                 </div>
                 <div className="custom-btn-div">
-                  <Link to='' class="custom-btn">BOOK NOW</Link>
+                  <Link to={Engine} target='_blank' class="custom-btn">BOOK NOW</Link>
                 </div>
 
 
@@ -549,7 +554,7 @@ const Rooms = ({Pagetitle}) => {
 
                 </div>
                 <div className="custom-btn-div">
-                  <Link to='' class="custom-btn">BOOK NOW</Link>
+                  <Link to={Engine} target='_blank' class="custom-btn">BOOK NOW</Link>
                 </div>
 
               </div>
@@ -1070,7 +1075,7 @@ const Rooms = ({Pagetitle}) => {
         </div>
 
         <div className="about-btn-div">
-          <Link to='' class="custom-btn">BOOK NOW</Link>
+          <Link to={Engine} target='_blank' class="custom-btn">BOOK NOW</Link>
         </div>
       </section>
 
@@ -1102,7 +1107,7 @@ const Rooms = ({Pagetitle}) => {
 
           </div>
           <div class="d-flex w-100 justify-content-center custom-btn-div">
-            <Link to='' class="custom-btn">BOOK NOW</Link>
+            <Link to={Engine} target='_blank' class="custom-btn">BOOK NOW</Link>
           </div>
         </div>
       </section>

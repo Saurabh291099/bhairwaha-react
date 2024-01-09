@@ -1,20 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
 import Slider from "react-slick";
 
 // import aboutImage from '../assets/images/about-pageimg.png'
 // import superDelux from '../assets/images/superdelux.png'
 // import suiteRoom from '../assets/images/suiteroom.png'
 // import steam from '../assets/images/steam-sunna.png'
+import NoteContext from '../context/notes/NoteContext';
 
 
 const ImageSlider = ({ GalleryImage, heading }) => {
 
-    // const GalleryImage = [
-    //     { imageUrl: aboutImage },
-    //     { imageUrl: superDelux },
-    //     { imageUrl: suiteRoom },
-    //     { imageUrl: steam },
-    // ];
 
 
     const settings1 = {
@@ -55,16 +51,33 @@ const ImageSlider = ({ GalleryImage, heading }) => {
         <>
             <section className='slider-section'>
                 <div className="container">
-                    <div className="slider-wrapper">
+                    {/* <div className="slider-wrapper">
                         <h2>{heading}</h2>
                         <Slider {...settings1} className='image-slider'>
+
                             {GalleryImage.map((data, index) => {
                                 return (
-                                    <div class="nearby-slider" key={heading+'-'+index}>
-                                        <img src={data} alt={`Gallery ${index + 1}`} />
+                                    <div class="nearby-slider" key={index}>
+                                        <img src={data} alt='gallery images' />
+                                        <p>{index}</p>
                                     </div>
                                 )
                             })}
+
+                        </Slider>
+                    </div> */}
+
+
+
+                    <div className="slider-wrapper">
+                        <h2>{heading}</h2>
+                        <Slider {...settings1} className='image-slider'>
+                            {GalleryImage.map((url, index) => (
+                                <div className="nearby-slider" key={index}>
+                                    <img src={url} alt={`Gallery ${index + 1} - ${heading}`} />
+                                    <p>{index}</p>
+                                </div>
+                            ))}
                         </Slider>
                     </div>
 
