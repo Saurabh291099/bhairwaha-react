@@ -12,7 +12,7 @@ import { Helmet } from 'react-helmet'
 import NoteContext from '../../context/notes/NoteContext';
 const Contact = ({ Pagetitle, Seodata }) => {
 
-  const { Footer, Location } = useContext(NoteContext);
+  const { Footer, Location,DataToarrange } = useContext(NoteContext);
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
@@ -42,7 +42,7 @@ const Contact = ({ Pagetitle, Seodata }) => {
               <div className="row contact-row">
                 <div className="col-12">
                   <h4>GET IN TOUCH</h4>
-                  <p>If you have any query regarding our bookings and services, then please contact us by filling out the form or by calling us and we will get back to you as soon as possible.</p>
+                  <p>{DataToarrange[4].Text}</p>
                 </div>
 
                 <div className="row mt-4 contact-row">

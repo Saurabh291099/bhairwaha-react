@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import NoteContext from '../context/notes/NoteContext';
 
 
-const ImageSlider = ({ GalleryImage, heading }) => {
+const ImageSlider = ({ GalleryImage, heading,required }) => {
 
 
 
@@ -48,7 +48,8 @@ const ImageSlider = ({ GalleryImage, heading }) => {
     };
 
     return (
-        <>
+        <>  
+        {required?
             <section className='slider-section'>
                 <div className="container">
                     {/* <div className="slider-wrapper">
@@ -75,14 +76,14 @@ const ImageSlider = ({ GalleryImage, heading }) => {
                             {GalleryImage.map((url, index) => (
                                 <div className="nearby-slider" key={index}>
                                     <img src={url} alt={`Gallery ${index + 1} - ${heading}`} />
-                                    <p>{index}</p>
+                                    {/* <p>{index}</p> */}
                                 </div>
                             ))}
                         </Slider>
                     </div>
 
                 </div>
-            </section>
+            </section>:""}
 
         </>
     )

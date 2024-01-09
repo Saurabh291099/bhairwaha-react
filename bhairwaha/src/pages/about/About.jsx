@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import Banner from '../../components/Banner'
 import '../../style/about.css'
 import '../../style/responsive.css'
@@ -13,18 +13,31 @@ import suiteRoom from '../../assets/images/suiteroom.png'
 import steam from '../../assets/images/steam-sunna.png'
 // import FindCard from './FindCard';
 import NoteContext from '../../context/notes/NoteContext';
-
+import HTMLReactParser from 'html-react-parser'
 
 import bicycle from '../../assets/images/bicycle.png'
 import localculture from '../../assets/images/localculture.png'
 import historical from '../../assets/images/historical.png'
 import OfferSection from '../../components/OfferSection';
+
+
+
+
 const About = ({ Pagetitle, Seodata }) => {
   const { Footer } = useContext(NoteContext);
   const { About } = useContext(NoteContext);
-  const { DataToarrange, Engine } = useContext(NoteContext);
+  const { DataToarrange, Engine,BunchImages,SectionTitles } = useContext(NoteContext);
 
-  console.log(Footer)
+  const [isTruncated, setIsTruncated] = useState(true);
+
+  const truncatedText = About.Text.split(' ').slice(0,140).join(' ');
+  const fullText = About.Text;
+
+  const toggleTruncate = () => {
+    setIsTruncated(!isTruncated);
+  };
+
+  // console.log(Footer)
 
   const aboutImageData = [
     { imageUrl: aboutpageImage },
@@ -151,20 +164,18 @@ const About = ({ Pagetitle, Seodata }) => {
           <div class="row aboutPage-row">
             <div class="col-sm-12 col-md-12 col-lg-6 about-text">
               <h2>{About.Heading}</h2>
-              <p>{About.Text}</p>
-              <div className="custom-btn-div">
-                <Link to='' class="custom-btn">LEARN MORE</Link>
-              </div>
+              <p>{isTruncated ? HTMLReactParser(truncatedText) : HTMLReactParser(fullText)}</p>
+                <div className="custom-btn-div">
+                  <Link onClick={toggleTruncate}  class="custom-btn">{isTruncated ? 'See more' : 'See less'}</Link>
+                </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6 image-div">
               <Slider {...settings} className='image-slider'>
-                {aboutImageData.map((data) => {
-                  return (
+                  
                     <div>
                       <img src={About.url} alt="About Images" />
                     </div>
-                  )
-                })}
+                  
               </Slider>
 
             </div>
@@ -647,10 +658,10 @@ const About = ({ Pagetitle, Seodata }) => {
             <div class="col-lg-6 image-div">
 
               <Slider {...settings} className='image-slider'>
-                {suiteRoomData.map((data) => {
+                {BunchImages.map((data) => {
                   return (
                     <div>
-                      <img src={data.imageUrl} alt="About Images" />
+                      <img src={data.Image} alt="About Images" />
                     </div>
                   )
                 })}
@@ -658,18 +669,12 @@ const About = ({ Pagetitle, Seodata }) => {
 
             </div>
 
-            <div class="col-lg-6 text-div">
+            <div class="col-lg-6 text-div space-management">
               <h2>Hotel Information</h2>
               <ul>
-                <li>Check-in Time: 02:00 PM</li>
-                <li>Check-out Time: 12:00 noon </li>
-                <li>Children up to 8 years old can stay on a complimentary basis (without an extra bed).</li>
-                <li>Children above eight are chargeable as per applicable rates.</li>
-                <li>Pets are not allowed.</li>
-                <li>Early check-in is subject to availability.</li>
-                <li>Breakfast is served from 7:00 AM to 10:00 AM.</li>
-                <li>Smoking is prohibited in rooms; please use designated outdoor areas.</li>
-                <li>Prior approval is required for events, weddings, and commercial activities.</li>
+                <li>Check-in Time: {SectionTitles[1].Description}</li>
+                <li>Check-out Time: {SectionTitles[2].Description} </li>
+                {HTMLReactParser(SectionTitles[3].Description)}
               </ul>
             </div>
           </div>

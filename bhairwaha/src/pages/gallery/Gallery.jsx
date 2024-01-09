@@ -84,7 +84,8 @@ const Gallery = ({ Pagetitle, Seodata }) => {
         );
       })} */}
       {filteredGallery.map((data, index) => (
-        <ImageSlider key={index} GalleryImage={data.Images} heading={data.Category} />
+        
+        <ImageSlider key={index} GalleryImage={data.Images} heading={data.Category} required={data.Required} />
       ))}
 
       {/* <ImageSlider /> */}

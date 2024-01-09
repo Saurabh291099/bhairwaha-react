@@ -13,13 +13,10 @@ import NoteContext from '../../context/notes/NoteContext';
 
 const Facility = ({Pagetitle,Seodata}) => {
   const {Footer} = useContext(NoteContext);
-  const { DataToarrange } = useContext(NoteContext);
+  const { DataToarrange,BunchImages } = useContext(NoteContext);
   const { Menu } = useContext(NoteContext);
 
-  const facility = [
-    { 'heading': 'In room Dinning', 'para': 'Enjoy the convenience of in-room dining at Bhairahawa Garden Resort. Experience the delight of dining in your own cosy haven. From breakfast in bed to a candlelit dinner for two, our room service caters to your every craving. Its the easy way to dine without leaving your room at Lumbinis best resort.', 'images': [aboutImage, superDelux, suiteRoom, steam] },
-    { 'heading': 'RESTAURANTS', 'para': 'Experience the luxury of fine dining at the heart of Bhairahawa Garden Resort. Our very own multi-cuisine restaurant guarantees a satisfying dining experience. Whether its a family feast, a romantic evening, or a casual dinner, our cosy, uniquely designed venue is your perfect choice. Experience the best of Lumbinis resort dining – a delicious escape for food enthusiasts and comfort seekers alike.', 'images': [aboutImage, superDelux, suiteRoom, steam] },
-  ]
+  
 
 
   const nearByPlace = [
@@ -75,12 +72,10 @@ const Facility = ({Pagetitle,Seodata}) => {
       <div className='faclity-section'>
         <section className='aboutPage-Facility-section'>
           <div class="container container-wrapper">
-            {facility.map((data, index) => {
-              return (
-                <FacilityContent FacilityImages={data.images} heading={data.heading} para={data} index={index % 2 !== 0 ? 'row-reverse' : 'row'} />
-              )
-            })}
-
+            <FacilityContent FacilityImages={BunchImages[3].Image} heading={DataToarrange[1].Heading} para={DataToarrange[1].Text} index={1} />
+          </div>
+          <div class="container container-wrapper">
+            <FacilityContent FacilityImages={BunchImages[5].Image} heading={DataToarrange[2].Heading} para={DataToarrange[2].Text} index={2} />
           </div>
         </section>
 

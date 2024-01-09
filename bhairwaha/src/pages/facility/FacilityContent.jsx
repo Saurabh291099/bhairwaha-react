@@ -9,7 +9,7 @@ import steam from '../../assets/images/steam-sunna.png'
 import NoteContext from '../../context/notes/NoteContext';
 
 
-const FacilityContent = ({ FacilityImages, heading }) => {
+const FacilityContent = ({ FacilityImages, heading,para ,index}) => {
     const { DataToarrange } = useContext(NoteContext);
 
 
@@ -24,25 +24,42 @@ const FacilityContent = ({ FacilityImages, heading }) => {
 
     return (
         <>
+            {index%2==0?
+            <div class="row">
+                
+                <div class="col-lg-6 text-div">
+                    <h2>{heading}</h2>
+                    <p>{para}</p>
+                </div>
+                <div class="col-lg-6 image-div">
+
+                    <Slider {...settings} className='image-slider'>
+                        
+                                <div>
+                                    <img src={FacilityImages} alt="About Images" />
+                                </div>
+                            
+                    </Slider>
+
+                </div>
+            </div>:
             <div class="row">
                 <div class="col-lg-6 image-div">
 
                     <Slider {...settings} className='image-slider'>
-                        {FacilityImages.map((data) => {
-                            return (
+                        
                                 <div>
-                                    <img src={data} alt="About Images" />
+                                    <img src={FacilityImages} alt="About Images" />
                                 </div>
-                            )
-                        })}
+                            
                     </Slider>
 
                 </div>
                 <div class="col-lg-6 text-div">
-                    <h2>{DataToarrange[1].Heading}</h2>
-                    <p>{DataToarrange[1].Text}</p>
+                    <h2>{heading}</h2>
+                    <p>{para}</p>
                 </div>
-            </div>
+        </div>}
         </>
     )
 }

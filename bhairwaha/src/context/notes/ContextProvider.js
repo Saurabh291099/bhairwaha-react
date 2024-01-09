@@ -257,8 +257,8 @@ const ContextProvider = ({ children }) => {
                 "Images": [
                     "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Nearby/11.webp",
                     "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Nearby/33.jpg",
-                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Nearby/11.webp",
-                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/image/Z1/Gallery/Nearby/33.jpg"
+                    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/bhairahawagardenresort/images/LatestImages/lumbini-nepal-birthplace-buddha-siddhartha-gautama.jpg",
+                    "https://cdn.elebase.io/173fe953-8a63-4a8a-8ca3-1bacb56d78a5/a00983a0-9883-41bb-a6d2-cc54298456bd-museum-cover.jpg?q=90"
                 ],
                 "Required": true
             },
@@ -1223,6 +1223,7 @@ const ContextProvider = ({ children }) => {
     const [Gallery, setGallery] = useState(websiteData.Gallery)
     const [Location, setLocation] = useState(websiteData.Location)
     const [Links, setLinks] = useState(websiteData.Links)
+    const [BunchImages, setBunchImages] = useState(websiteData.Images)
 
     
 
@@ -1230,6 +1231,21 @@ const ContextProvider = ({ children }) => {
 
     // WEBSITE DATA API
     // Rooms API
+    const RoomsAPI = async () => {
+        try {
+            const response = await fetch(`https://nexon.eazotel.com/google/reviews/17714494-3c47-4f31-9f4e-585fbc799984`, {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+            });
+            const json = await response.json();
+            setReviews(json.Reviews)
+        } catch (error) {
+            console.error("Error fetching check-in data:", error);
+        }
+    }
     // Reviews API
     const [Reviews, setReviews] = useState([])
     const ReviewsAPI = async () => {
@@ -1251,7 +1267,7 @@ const ContextProvider = ({ children }) => {
     return (
         <NoteContext.Provider value={{
             websiteData, slugs, PageTitle, SeoData, Banner, Footer, About, DataToarrange, Nearby, Menu, SectionTitles, Location, Engine, Gallery,Links,
-
+            BunchImages,
             // Reviews
             ReviewsAPI, Reviews
         }}>

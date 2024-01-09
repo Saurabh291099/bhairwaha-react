@@ -3,6 +3,7 @@ import HomeBanner from './HomeBanner'
 import Checks from './Checks'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+import HTMLReactParser from 'html-react-parser'
 
 // images import 
 
@@ -27,8 +28,9 @@ import NoteContext from '../../context/notes/NoteContext';
 // import "slick-carousel/slick/slick-theme.css";
 
 
-const Home = ({ Seodata }) => {
+const Home = ({ Seodata,slugs }) => {
   const { About } = useContext(NoteContext);
+
 
   const { ReviewsAPI, Reviews, Footer, Nearby, SectionTitles, Engine } = useContext(NoteContext);
   useEffect(() => {
@@ -134,21 +136,19 @@ const Home = ({ Seodata }) => {
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6 about-text">
               <h2>{About.Heading}</h2>
-              <p>{About.Text}</p>
+              <p>{HTMLReactParser(About.Text.split(' ').slice(0,140).join(' '))}</p>
               <div className="custom-btn-div">
-                <Link to='' class="custom-btn">LEARN MORE</Link>
+                <Link to={slugs[0]} class="custom-btn">LEARN MORE</Link>
               </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6 image-div">
-              <Slider {...settings} className='image-slider'>
-                {aboutImageData.map((data) => {
-                  return (
-                    <div>
-                      <img src={About.url} alt="About Images" />
-                    </div>
-                  )
-                })}
-              </Slider>
+            <Slider {...settings} className='image-slider'>
+                  
+                  <div>
+                    <img src={About.url} alt="About Images" />
+                  </div>
+                
+            </Slider>
 
               {/* <div id="carouselExampleControls1" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -638,7 +638,7 @@ const Home = ({ Seodata }) => {
 
           <div class="d-flex w-100 justify-content-center">
             <div className="custom-btn-div">
-              <Link to='' class="custom-btn">VIEW GALLERY</Link>
+              <Link to={slugs[7]} class="custom-btn">VIEW GALLERY</Link>
             </div>
           </div>
         </div>

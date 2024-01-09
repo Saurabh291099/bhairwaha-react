@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import Banner from '../../components/Banner'
 import { Link } from 'react-router-dom'
 import Slider from "react-slick";
+import HTMLReactParser from 'html-react-parser'
 
 
 
@@ -16,7 +17,7 @@ import NoteContext from '../../context/notes/NoteContext';
 
 const Rooms = ({ Pagetitle }) => {
 
-  const { Engine } = useContext(NoteContext);
+  const { Engine,BunchImages,SectionTitles } = useContext(NoteContext);
 
 
   const superDeluxRoom = [
@@ -1046,10 +1047,10 @@ const Rooms = ({ Pagetitle }) => {
             <div class="col-lg-6 image-div">
 
               <Slider {...settings} className='image-slider'>
-                {suiteRoomData.map((data) => {
+                {BunchImages.map((data) => {
                   return (
                     <div>
-                      <img src={data.imageUrl} alt="About Images" />
+                      <img src={data.Image} alt="About Images" />
                     </div>
                   )
                 })}
@@ -1057,18 +1058,12 @@ const Rooms = ({ Pagetitle }) => {
 
             </div>
 
-            <div class="col-lg-6 text-div">
+            <div class="col-lg-6 text-div space-management">
               <h2>Hotel Information</h2>
               <ul>
-                <li>Check-in Time: 02:00 PM</li>
-                <li>Check-out Time: 12:00 noon </li>
-                <li>Children up to 8 years old can stay on a complimentary basis (without an extra bed).</li>
-                <li>Children above eight are chargeable as per applicable rates.</li>
-                <li>Pets are not allowed.</li>
-                <li>Early check-in is subject to availability.</li>
-                <li>Breakfast is served from 7:00 AM to 10:00 AM.</li>
-                <li>Smoking is prohibited in rooms; please use designated outdoor areas.</li>
-                <li>Prior approval is required for events, weddings, and commercial activities.</li>
+                <li>Check-in Time: {SectionTitles[1].Description}</li>
+                <li>Check-out Time: {SectionTitles[2].Description} </li>
+                {HTMLReactParser(SectionTitles[3].Description)}
               </ul>
             </div>
           </div>

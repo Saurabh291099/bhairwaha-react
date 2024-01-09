@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState ,useContext} from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './checking.css'
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from 'react-router-dom';
+import NoteContext from '../../context/notes/NoteContext';
 const Checks = () => {
+    const { Engine } = useContext(NoteContext);
     const [room, setRoom] = useState(0);
     const [adult, setAdult] = useState(0)
     const [child, setChild] = useState(0)
@@ -126,7 +128,7 @@ const Checks = () => {
                         </div>
                     </Col>
                     <Col>
-                        <Link className='custom-btn'>Check Availability</Link>
+                        <Link target='_blank' to={Engine} className='custom-btn'>Check Availability</Link>
                     </Col>
                 </Row>
             </Container>

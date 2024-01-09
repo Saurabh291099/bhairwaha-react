@@ -35,7 +35,7 @@ function App() {
   }, {});
 
   const PageToComponent = {
-    "about.html": <About Pagetitle={PageTitle.About} Seodata = {transformedData["About"]} />,
+    "about.html": <About Pagetitle={PageTitle.About} Seodata = {transformedData["About"]} slugs={slug} />,
     "contact.html": <Contact Pagetitle={PageTitle.Contact} Seodata = {transformedData["Contact"]} />,
     "facility.html":<Facility Pagetitle={PageTitle.Facilities } Seodata = {transformedData["Facilities"]} />,
     "gallery1.html":<Gallery Pagetitle={PageTitle.Gallery} Seodata = {transformedData["Gallery"]} />,
@@ -56,7 +56,7 @@ function App() {
 
         <Navbar slug={slug} />
         <Routes>
-          <Route path="/" exact element={<Home Seodata = {transformedData["Home"]} />} />
+          <Route path="/" exact element={<Home Seodata = {transformedData["Home"]} slugs={slug} />} />
 
           {slug.map(slug => (
               <Route
